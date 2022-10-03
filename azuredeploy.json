@@ -1161,6 +1161,12 @@
             "apiVersion": "2022-03-01",
             "name": "[format('vm-{0}-spoke-one-linux', parameters('location'))]",
             "location": "[parameters('location')]",
+            "tags": {
+                "Category": "Demo",
+                "Cloud Advocate": "Pierre Roman",
+                "TimeZone": "Eastern Standard Time",
+                "LifeCycle": "persistent"
+            },
             "properties": {
                 "hardwareProfile": {
                     "vmSize": "Standard_D2ds_v4"
@@ -1343,6 +1349,12 @@
             "apiVersion": "2022-03-01",
             "name": "[format('vm-{0}-spoke-two-windows', parameters('location'))]",
             "location": "[parameters('location')]",
+            "tags": {
+                "Category": "Demo",
+                "Cloud Advocate": "Pierre Roman",
+                "TimeZone": "Eastern Standard Time",
+                "LifeCycle": "persistent"
+            },
             "properties": {
                 "hardwareProfile": {
                     "vmSize": "Standard_D2s_v3"
