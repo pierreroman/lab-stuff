@@ -1,0 +1,23 @@
+Deply sample
+---------------------
+
+az deployment group create --resource-group hub-spoke --template-uri https://raw.githubusercontent.com/pierreroman/lab-stuff/main/azuredeploy.json --parameters deployVirtualMachines=true adminUsername=azureadmin adminPassword=P@ssw0rd1234 deployVpnGateway=true
+
+
+RDP over Bastion
+---------------------
+
+vmspoke1
+
+az network bastion rdp --name "ab-eastus-agvt2eipmaoja" --resource-group "hub-spoke" --target-resource-id "/subscriptions/992cb893-b0cc-4d86-87f4-0007e9145f0a/resourceGroups/hub-spoke/providers/Microsoft.Compute/virtualMachines/vm-eastus-spoke-two-windows"
+
+vmspoke3
+
+az network bastion rdp --name "ab-eastus-agvt2eipmaoja" --resource-group "hub-spoke" --target-resource-id "/subscriptions/992cb893-b0cc-4d86-87f4-0007e9145f0a/resourceGroups/hub-spoke/providers/Microsoft.Compute/virtualMachines/vm-eastus-spoke-three-windows"
+
+
+enable ping  on Windows server
+--------------------------------
+
+netsh advfirewall firewall add rule name="ICMP Allow incoming V4 echo request" protocol="icmpv4:8,any" dir=in action=allow
+netsh advfirewall firewall add rule name="ICMP Allow incoming V6 echo request" protocol="icmpv6:8,any" dir=in action=allow
